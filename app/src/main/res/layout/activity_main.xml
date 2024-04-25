@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.example.retrofit.ViewModelClass" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_setter"
+        android:background="@drawable/img"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            >
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/answer"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_centerInParent="true"
+                android:onClick="@{()->myViewModel.onButtontouch_Answer()}"
+                android:text="@={myViewModel.answerButton}" />
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/answer"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:text="@={myViewModel.questionButton}"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/view"
+                android:text="@={myViewModel.modeButton}"
+                android:layout_below="@+id/answer"
+                android:layout_marginTop="40dp"
+            />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
